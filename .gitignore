@@ -1,4 +1,8 @@
-.env
-*/config/
-*/data/
-*.key
+*
+!.gitignore
+!README.md
+!*/
+!*/compose.yaml
+!*/compose.yml
+!*/.env.example
+!docs/**

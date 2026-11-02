@@ -1,0 +1,23 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - HOMEPAGE_ALLOWED_HOSTS=192.168.1.153:3000,100.75.204.82:3000
+    volumes:
+      - /mnt/t7/appdata/homepage:/app/config
+      - /mnt/t7:/mnt/t7:ro
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    container_name: uptime-kuma
+    volumes:
+      - /mnt/t7/appdata/uptime-kuma:/app/data
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
